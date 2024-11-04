@@ -289,6 +289,9 @@ function startSession() {
   state.session.isActive = true;
   state.session.progress = 0;
   state.session.lastNumbers = [];
+  if (state.session.isPaused) {
+    togglePause();  // In case previous session ended while paused.
+  }
   saveConfig();
   // Prime the TTS system with a silent utterance; needed for iOS.
   if (state.tts.isReady && isiOS()) {
