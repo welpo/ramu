@@ -421,7 +421,7 @@ function isArabicNumeral(str) {
   return /^\d+$/.test(str);
 }
 
-const isFirefox = /Chrome/.test(navigator.userAgent);
+const isFirefox = /Firefox/.test(navigator.userAgent);
 
 function announceToScreenReader(message) {
   // Chrome announces twice if we set the tabindex to -1. Firefox doesn't announce at all until user enters web content. Setting tabindex to -1 fixes it. Safari doesn't care either way.
