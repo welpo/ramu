@@ -126,6 +126,72 @@ p a:hover {
 }
 
 /* Style inputs */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    accent-color: var(--primary);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    cursor: pointer;
+    border-radius: var(--radius-full);
+    background: var(--border);
+    width: 100%;
+}
+
+input[type="range"]::-moz-range-track {
+    cursor: pointer;
+    border-radius: var(--radius-full);
+    background: var(--border);
+    width: 100%;
+}
+
+/* Slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    border: none;
+    border-radius: var(--radius-full);
+    background: var(--primary);
+    width: 16px;
+    height: 16px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    border: none;
+    border-radius: var(--radius-full);
+    background: var(--primary);
+}
+
+/* Hover state */
+input[type="range"]:hover::-webkit-slider-thumb {
+    background: var(--primary-light);
+}
+
+input[type="range"]:hover::-moz-range-thumb {
+    background: var(--primary-light);
+}
+
+/* Active state */
+input[type="range"]:active::-webkit-slider-thumb {
+    transform: scale(1.1);
+}
+
+input[type="range"]:active::-moz-range-thumb {
+    transform: scale(1.1);
+}
+
+#voice-speed-display {
+    min-width: 3ch;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+
 input[type="number"] {
     border: none;
     border-bottom: 2px solid var(--primary-light);

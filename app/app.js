@@ -33,6 +33,11 @@ const MODE_DISPLAY = {
 
 document.addEventListener("DOMContentLoaded", async () => {
   initDOM();
+  voiceSpeed.addEventListener("input", (e) => {
+    const speed = parseFloat(e.target.value);
+    state.config.voiceSpeed = speed;
+    voiceSpeedDisplay.textContent = `${speed}×`;
+  });
   loadConfig();
   const ttsReady = await initTTS();
   if (!ttsReady) return;
@@ -57,6 +62,8 @@ function initDOM() {
   stopBtn = document.getElementById("stop-btn");
   pauseBtn = document.getElementById("pause-btn");
   voiceSelect = document.getElementById("voice-select");
+  voiceSpeed = document.getElementById("voice-speed");
+  voiceSpeedDisplay = document.getElementById("voice-speed-display");
   configPanel = document.getElementById("config-panel");
   practicePanel = document.getElementById("practice-panel");
   challengeDisplay = document.getElementById("challenge-display");
@@ -107,6 +114,11 @@ function loadConfig() {
       });
       state.config.enabledCounters = config.enabledCounters;
     }
+    if (config.voiceSpeed) {
+      voiceSpeed.value = config.voiceSpeed;
+      state.config.voiceSpeed = config.voiceSpeed;
+      voiceSpeedDisplay.textContent = `${config.voiceSpeed}×`;
+    }
   } catch (error) {
     console.error("Error loading saved config:", error);
     localStorage.removeItem(CONFIG_STORAGE_KEY);
@@ -145,11 +157,12 @@ async function initTTS() {
 function getJapaneseVoices() {
   const voices = speechSynthesis.getVoices();
   let japaneseVoices = voices
-    .filter((voice) =>
-      voice.lang === "ja-JP" ||
-      voice.lang === "ja" ||
-      // Fix for Android.
-      voice.name.toLowerCase().includes('japanese')
+    .filter(
+      (voice) =>
+        voice.lang === "ja-JP" ||
+        voice.lang === "ja" ||
+        // Fix for Android.
+        voice.name.toLowerCase().includes("japanese")
     )
     .sort(
       (a, b) =>
@@ -290,7 +303,7 @@ function startSession() {
   state.session.progress = 0;
   state.session.lastNumbers = [];
   if (state.session.isPaused) {
-    togglePause();  // In case previous session ended while paused.
+    togglePause(); // In case previous session ended while paused.
   }
   saveConfig();
   // Prime the TTS system with a silent utterance; needed for iOS.
