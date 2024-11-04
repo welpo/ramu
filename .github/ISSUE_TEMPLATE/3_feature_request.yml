@@ -1,0 +1,35 @@
+name: "feature request"
+description: "share your ideas for ラム"
+labels: ["enhancement"]
+body:
+- type: markdown
+  attributes:
+    value: |
+      thanks for sharing your idea to make ラム better〜
+
+- type: textarea
+  attributes:
+    label: "what's your idea?"
+    description: "tell us about the feature you'd like to see!"
+    placeholder: "example: it would be great if we could practice counting money in yen"
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: "why would this be helpful?"
+    description: "how would this feature make ラム more useful for you?"
+    placeholder: |
+      example: this would help me get better at handling money when shopping in japan.
+      it would be really practical for daily life!
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: "any specific details?"
+    description: "optional: share any other thoughts or suggestions about how this feature could work"
+    placeholder: |
+      example: adding '円' to the counters would work! so we could practice saying prices like ５００円 or １０００円
+  validations:
+    required: false

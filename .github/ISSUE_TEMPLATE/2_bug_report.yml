@@ -1,0 +1,46 @@
+name: "report a bug"
+description: "help make ラム better by reporting an issue"
+labels: ["bug"]
+body:
+- type: textarea
+  attributes:
+      label: "what's happening?"
+      description: "tell us what's not working right."
+      placeholder: "example: the numbers aren't being read out loud when i click them, or the kanji isn't showing up correctly."
+  validations:
+      required: true
+
+- type: textarea
+  attributes:
+      label: "how can we see it too?"
+      description: "what steps should we follow to see the same issue?"
+      placeholder: |
+          1. open ラム
+          2. click on...
+          3. then...
+  validations:
+      required: true
+
+- type: dropdown
+  attributes:
+      label: "where are you using ラム?"
+      options:
+          - "on my phone in a browser"
+          - "on my phone as an installed app"
+          - "on my computer in a browser"
+          - "on my computer as an installed app"
+  validations:
+      required: true
+
+- type: input
+  attributes:
+      label: "which browser are you using?"
+      placeholder: "example: chrome, safari, firefox"
+  validations:
+      required: true
+
+- type: textarea
+  attributes:
+      label: "anything else we should know?"
+      description: "optional: add any other helpful details"
+      required: false
