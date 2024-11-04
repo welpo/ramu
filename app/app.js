@@ -660,26 +660,29 @@ function convertBasicNumber(num) {
 }
 
 const KEYBOARD_SHORTCUTS = {
-  KeyP: togglePause,
-  Escape: endSession,
-  ArrowRight: nextOrReveal,
-  Space: nextOrReveal,
-  Enter: (e) => {
-    // Enter starts a session if nothing else is focused.
-    if (document.activeElement === document.body) {
-      e.preventDefault();
-      if (!state.session.isActive && !startBtn.disabled) {
+  DURING_SESSION: {
+    KeyP: togglePause,
+    Escape: endSession,
+    ArrowRight: nextOrReveal,
+    Space: nextOrReveal,
+  },
+  OUTSIDE_SESSION: {
+    Enter: (e) => {
+      if (document.activeElement === document.body && !startBtn.disabled) {
+        e.preventDefault();
         startSession();
       }
     }
-  },
+  }
 };
 
 document.addEventListener("keydown", (e) => {
-  if (KEYBOARD_SHORTCUTS[e.code]) {
-    if (e.code === "Enter" || state.session.isActive) {
-      KEYBOARD_SHORTCUTS[e.code](e);
-    }
+  if (state.session.isActive) {
+    const action = KEYBOARD_SHORTCUTS.DURING_SESSION[e.code];
+    if (action) action(e);
+  } else {
+    const action = KEYBOARD_SHORTCUTS.OUTSIDE_SESSION[e.code];
+    if (action) action(e);
   }
 });
 
