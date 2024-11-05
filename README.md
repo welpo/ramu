@@ -23,6 +23,8 @@ i built ラム to practice listening and reading japanese numbers in different f
 
 the name reflects its purpose: achieving RAM (random access memory) to numbers, as opposed to sequential memory (1, 2, 3…). ラム means ram 🐏, thus the logo.
 
+i wrote about the motivation for building ラム and roadblocks i encountered in [this blog post](https://osc.garden/blog/ramu-japanese-numbers-practice-web-app/).
+
 ## demo
 
 enable sound!
