@@ -1,5 +1,7 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/welpo/ramu/main/app/logo_with_text.webp" width="300" alt="ramu logo: a ram with numbers on its horns">
+    <a href="https://ramu.osc.garden">
+        <img src="https://raw.githubusercontent.com/welpo/ramu/main/app/logo_with_text.webp" width="300" alt="ramu logo: a ram with numbers on its horns">
+    </a>
     <br>
     <a href="#contributing">
         <img src="https://img.shields.io/badge/prs-welcome-0?style=flat-square&labelcolor=202b2d&color=4b2e7f" alt="prs welcome"></a>
