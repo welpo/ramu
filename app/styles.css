@@ -27,6 +27,9 @@
     --radius-md: 8px;
     --radius-lg: 12px;
     --radius-full: 9999px;
+
+    scrollbar-color: var(--primary) transparent;
+    accent-color: var(--primary);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -130,7 +133,6 @@ input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     background: transparent;
-    accent-color: var(--primary);
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
@@ -227,7 +229,6 @@ input[type="number"].range {
     margin-right: 0.4rem;
     width: 1rem;
     height: 1rem;
-    accent-color: var(--primary);
 }
 
 .config-line:has(fieldset) {
