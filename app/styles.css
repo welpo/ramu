@@ -811,6 +811,6 @@ kbd {
     }
 
     ruby rt {
-        transition: opacity 0.2s ease;
+        transition: none;
     }
 }
