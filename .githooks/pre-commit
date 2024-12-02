@@ -18,6 +18,11 @@ function contains_todo() {
     grep -q "TODO" "$file"
 }
 
+function has_unstaged_changes() {
+    local file="$1"
+    [[ -n $(git diff -- "$file") ]]
+}
+
 # Files to watch for cache busting (relative to app/)
 APP_FILES_TO_CACHEBUST=(
     "app.js"
@@ -58,6 +63,10 @@ for file in "${all_changed_files[@]}"; do
     # If the file contains "TODO", abort the commit.
     if contains_todo "$file"; then
         error_exit "File $file contains TODO! Remove or complete the TODO before committing."
+    fi
+
+    if has_unstaged_changes "app/index.html"; then
+        error_exit "index.html has unstaged changes. Commit or stash them before proceeding."
     fi
 
     # Update cache busting ?urls in index.html.
