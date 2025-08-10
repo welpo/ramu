@@ -1,11 +1,11 @@
-const CACHE_NAME = 'ramu-cache-v0.0.1';
+const CACHE_NAME = 'ramu-cache-v0.0.2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
-  '/styles.css',
+  '/styles.css?h=46463fd9',
   '/logo_small.webp',
-  '/app.js',
-  '/sw-registration.js',
+  '/app.js?h=0158eccd',
+  '/sw-registration.js?h=81772571',
   '/favicon-96x96.png',
   '/web-app-manifest-192x192.png',
   '/web-app-manifest-512x512.png'
